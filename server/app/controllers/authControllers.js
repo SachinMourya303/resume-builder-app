@@ -4,15 +4,15 @@ import jwt from 'jsonwebtoken';
 
 export const signup = async (req, res) => {
     try {
-        const { name, email, passward } = req.body;
+        const { name, email, password } = req.body;
 
         const findUser = await userModel.findOne({ email });
         if (findUser) {
             return res.status(409).json({ success: false, message: 'User already exists you can signin' });
         }
 
-        const user = new userModel({ name, email, passward });
-        user.passward = await bcrypt.hash(passward, 10);
+        const user = new userModel({ name, email, password });
+        user.password = await bcrypt.hash(password, 10);
         await user.save();
         return res.status(200).json({ success: true, message: 'Signup successfull' });
     } catch (error) {
@@ -22,16 +22,16 @@ export const signup = async (req, res) => {
 
 export const signin = async (req, res) => {
     try {
-        const { email, passward } = req.body;
+        const { email, password } = req.body;
 
         const findUser = await userModel.findOne({ email });
         if (!findUser) {
             return res.status(409).json({ success: false, message: 'User not found please signup!' });
         }
 
-        const isPassEqual = await bcrypt.compare(passward, findUser.passward);
+        const isPassEqual = await bcrypt.compare(password, findUser.password);
         if (!isPassEqual) {
-            return res.status(409).json({ success: false, message: 'Incorrect passward' });
+            return res.status(409).json({ success: false, message: 'Incorrect password' });
         }
 
         const jwtToken = jwt.sign({ email: findUser.email, _id: findUser._id },
