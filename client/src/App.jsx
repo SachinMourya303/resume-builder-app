@@ -5,12 +5,12 @@ import Background from './app/components/background'
 import Signup from './app/pages/Signup'
 import Signin from './app/pages/Signin'
 import Dashboard from './app/pages/Dashboard'
-import { ToastContainer } from 'react-toastify'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   return (
     <div>
-      <ToastContainer />
+      <Toaster />
       <Background />
       <Routes >
         <Route path='/' element={<Homepage />} />
