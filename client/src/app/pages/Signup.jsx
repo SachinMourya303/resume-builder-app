@@ -1,18 +1,15 @@
 import { Lock, Mail, User2 } from 'lucide-react'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { signupRequest } from '../utils/signupRequest'
-import { useDispatch } from 'react-redux'
 
 const Signup = () => {
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [signUpData, setSignUpData] = useState({
         name: "",
         email: "",
         password: ""
-    })
-
-    console.log(signUpData);
+    });
 
     const onChangeHandle = (e) => {
         const { name, value } = e.target;
@@ -25,7 +22,7 @@ const Signup = () => {
 
     const sendSignUpRequest = async (e) => {
         e.preventDefault();
-        await signupRequest(dispatch, name, email, password)
+        await signupRequest(navigate , name, email, password)
     }
 
     return (
