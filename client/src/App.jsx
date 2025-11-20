@@ -1,10 +1,10 @@
 import React from 'react'
-import Homepage from './pages/homepage'
+import Homepage from './app/pages/homepage'
 import { Routes, Route } from 'react-router-dom'
-import Background from './components/background'
-import Signup from './pages/Signup'
-import Signin from './pages/Signin'
-import Dashboard from './pages/Dashboard'
+import Background from './app/components/background'
+import Signup from './app/pages/Signup'
+import Signin from './app/pages/Signin'
+import Dashboard from './app/pages/Dashboard'
 
 const App = () => {
   return (
