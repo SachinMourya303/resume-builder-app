@@ -5,10 +5,12 @@ import Background from './app/components/background'
 import Signup from './app/pages/Signup'
 import Signin from './app/pages/Signin'
 import Dashboard from './app/pages/Dashboard'
+import { ToastContainer } from 'react-toastify'
 
 const App = () => {
   return (
     <div>
+      <ToastContainer />
       <Background />
       <Routes >
         <Route path='/' element={<Homepage />} />

@@ -23,7 +23,8 @@ const Signup = () => {
     const email = signUpData.email;
     const password = signUpData.password;
 
-    const sendSignUpRequest = async () => {
+    const sendSignUpRequest = async (e) => {
+        e.preventDefault();
         await signupRequest(dispatch, name, email, password)
     }
 
