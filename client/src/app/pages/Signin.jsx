@@ -1,5 +1,5 @@
 import { Lock, Mail } from 'lucide-react'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { signinRequest } from '../utils/signinRequest';
 import { useDispatch } from 'react-redux'
@@ -42,7 +42,7 @@ const Signin = () => {
                     <input onChange={onChangeHandle} name='password' value={signInData.password} type="password" placeholder="Password" className="bg-transparent placeholder-gray-200/80 outline-none text-sm w-full h-full" required />
                 </div>
 
-                <button type="submit" class="mt-8 w-full h-11 rounded-full text-white bg-gradient-to-tr from-pink-500 via-orange-500 to-blue-500 hover:opacity-90 transition-opacity cursor-pointer">
+                <button type="submit" className="mt-8 w-full h-11 rounded-full text-white bg-gradient-to-tr from-pink-500 via-orange-500 to-blue-500 hover:opacity-90 transition-opacity cursor-pointer">
                     Login
                 </button>
 
